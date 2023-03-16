@@ -4,6 +4,10 @@ services:
     build: .
     container_name: hapi-fhir-jpaserver-start
     restart: on-failure
+    environment:
+            - hapi.fhir.auto_create_placeholder_reference_targets=true
+            - hapi.fhir.allow_placeholder_references=true 
+            - hapi.fhir.allow_external_references=true
     ports:
       - "8080:8080"
   hapi-fhir-postgres:
